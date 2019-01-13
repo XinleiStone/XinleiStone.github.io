@@ -195,7 +195,7 @@
       
         
         <li class="menu-item menu-item-分类">
-          <a href="/categories/" rel="section">
+          <a href="/categories" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
@@ -205,7 +205,7 @@
       
         
         <li class="menu-item menu-item-标签">
-          <a href="/tags/" rel="section">
+          <a href="/tags" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
@@ -215,7 +215,7 @@
       
         
         <li class="menu-item menu-item-文章">
-          <a href="/archives/" rel="section">
+          <a href="/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
@@ -225,7 +225,7 @@
       
         
         <li class="menu-item menu-item-我">
-          <a href="/about/" rel="section">
+          <a href="/about" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
@@ -261,7 +261,7 @@
   
   
 
-  <article class="post post-type-categories" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
@@ -360,10 +360,10 @@
         
           
             <p>如果只是画一个饼图的图表，可能相对简单，用到d3.js的API较少，所以把饼图稍微改造了一下。大家不要纠结这个“蒲公英”到底有啥用~（抱歉这个是我画的老图了，看过的就当时第一次看哈哈）</p>
-<p><img src="/2019/01/13/d3-js初探/d3.js初探/demo.png" alt="tree layout"></p>
+<p><img src="/2019/01/13/d3-js初探/demo.png" alt="tree layout"></p>
 <p>其实大家都比较熟悉d3.js了，但是d3.js最值得我们用的特性不就是可以随意发挥我们的想象力吗？它给我们定义好的是一些可视化基础布局和操作svg元素的工具，至于我们最终呈现的是什么样的图，完全取决于我们的需求。<br></p>
 <h4 id="如何上手d3-js"><a href="#如何上手d3-js" class="headerlink" title="如何上手d3.js"></a>如何上手d3.js</h4><p>这个怎么画？可能一时间无从下手。当我们根本不知道第一步做什么的时候，最好的方法就是去看看别人怎么做的，有个例子当然最好了。个人认为d3.js的学习曲线还是比较陡的，入门可能需要下一些功夫。如果直接从官网看api文档可能会没有头绪，所以需要一些讨巧的办法，最简单的方法就是从<a href="https://github.com/d3/d3/wiki/Gallery" target="_blank" rel="noopener">官网示例</a>中找一些示例的代码，例如这个<a href="https://beta.observablehq.com/@mbostock/d3-tidy-tree" target="_blank" rel="noopener">树图</a>，里面不仅有效果图，下面还附赠了代码，甚至可以编辑运行，是不是很贴心？结合官方文档看相信能更容易理解。</p>
-<p><img src="/2019/01/13/d3-js初探/d3.js初探/tree.png" alt="tree layout"></p>
+<p><img src="/2019/01/13/d3-js初探/tree.png" alt="tree layout"></p>
 <h4 id="选择元素"><a href="#选择元素" class="headerlink" title="选择元素"></a>选择元素</h4><p>d3.js第4版添加了对Canvas的支持，现在可以基于canvas创建画布了，也就是说我们的画布可以定义成svg元素或者canvas元素，就像是这样：</p>
 <pre>
 <code>
@@ -497,10 +497,10 @@ const ratio = length / changedWordsLength,
 </code></pre>
 
 <p><em>curve</em> 这里用到的是画线的一些插值结算方法，<em>d3.curveBasis</em> 当然就是basis曲线了。这里linePoint我们是为了让线具有自然弯曲的效果，在一根线上定义了四个点，然后让线用 <a href="&#39;https://github.com/xswei/d3-shape/blob/master/README.md#radialLine_curve&#39;">basis曲线</a> 计算出来的方式进行连接，就呈现出了自然的弯曲形状。</p>
-<p>这有点类似于ps里的钢笔工具：<br><img src="/2019/01/13/d3-js初探/d3.js初探/pen.png" alt="钢笔"></p>
+<p>这有点类似于ps里的钢笔工具：<br><img src="/2019/01/13/d3-js初探/pen.png" alt="钢笔"></p>
 <p><pre><code><br>node.attr(‘d’, function(d, i) {<br>  linePoint[i] = []<br>  linePoint[i].push(<br>    {<br>      x: 0,<br>      y: 0<br>    },<br>    {<br>      x: d.x - flexFlag <em> ((Math.random() </em> radius) / 60 + (Math.random() <em> radius) / 60),<br>      y: radius / 2<br>    },<br>    {<br>      x: d.x + flexFlag </em> ((Math.random() <em> radius) / 60 + (Math.random() </em> radius) / 60),<br>      y: (radius / 12) * 11<br>    },<br>    {<br>      x: d.x,<br>      y: d.y<br>    }<br>  )<br>})<br></code></pre></p>
 <p>如果不使用这个效果，那会是这样的：</p>
-<p><img src="/2019/01/13/d3-js初探/d3.js初探/curve.png" alt="curve"></p>
+<p><img src="/2019/01/13/d3-js初探/curve.png" alt="curve"></p>
 <p>线条就没那么自然啦。</p>
 <p>同样的道理，现在只是定义了节点和线的位置方法，还没有真正在节点上画“花瓣”。接下来只要在定义的位置上画出想要的图形就可以了。其实就是在相应的位置放置上需要的元素，在node上放 <circle></circle> 元素。</p>
 <pre><code>
@@ -641,10 +641,10 @@ for (var k = 1; k < linePoint.length; k++) {
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">categories</span>
-                
+                </a>
               </div>
             
 
@@ -652,10 +652,10 @@ for (var k = 1; k < linePoint.length; k++) {
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
