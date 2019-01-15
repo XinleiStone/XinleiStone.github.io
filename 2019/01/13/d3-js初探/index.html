@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://www.liuxinlei.com/2019/01/13/d3-js初探/tree.png">
 <meta property="og:image" content="http://www.liuxinlei.com/2019/01/13/d3-js初探/pen.png">
 <meta property="og:image" content="http://www.liuxinlei.com/2019/01/13/d3-js初探/curve.png">
-<meta property="og:updated_time" content="2019-01-13T15:19:30.918Z">
+<meta property="og:updated_time" content="2019-01-15T07:22:04.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="d3.js初探">
 <meta name="twitter:description" content="如果只是画一个饼图的图表，可能相对简单，用到d3.js的API较少，所以把饼图稍微改造了一下。大家不要纠结这个“蒲公英”到底有啥用~（抱歉这个是我画的老图了，看过的就当时第一次看哈哈）  其实大家都比较熟悉d3.js了，但是d3.js最值得我们用的特性不就是可以随意发挥我们的想象力吗？它给我们定义好的是一些可视化基础布局和操作svg元素的工具，至于我们最终呈现的是什么样的图，完全取决于我们的需">
@@ -366,9 +366,10 @@
       
         <p>如果只是画一个饼图的图表，可能相对简单，用到d3.js的API较少，所以把饼图稍微改造了一下。大家不要纠结这个“蒲公英”到底有啥用~（抱歉这个是我画的老图了，看过的就当时第一次看哈哈）</p>
 <p><img src="/2019/01/13/d3-js初探/demo.png" alt="tree layout"></p>
-<p>其实大家都比较熟悉d3.js了，但是d3.js最值得我们用的特性不就是可以随意发挥我们的想象力吗？它给我们定义好的是一些可视化基础布局和操作svg元素的工具，至于我们最终呈现的是什么样的图，完全取决于我们的需求。<br></p>
+<p>其实大家都比较熟悉d3.js了，但是d3.js最值得我们用的特性不就是可以随意发挥我们的想象力吗？它给我们定义好的是一些可视化基础布局和操作svg元素的工具，至于我们最终呈现的是什么样的图，完全取决于我们的需求。</p>
 <h4 id="如何上手d3-js"><a href="#如何上手d3-js" class="headerlink" title="如何上手d3.js"></a>如何上手d3.js</h4><p>这个怎么画？可能一时间无从下手。当我们根本不知道第一步做什么的时候，最好的方法就是去看看别人怎么做的，有个例子当然最好了。个人认为d3.js的学习曲线还是比较陡的，入门可能需要下一些功夫。如果直接从官网看api文档可能会没有头绪，所以需要一些讨巧的办法，最简单的方法就是从<a href="https://github.com/d3/d3/wiki/Gallery" target="_blank" rel="noopener">官网示例</a>中找一些示例的代码，例如这个<a href="https://beta.observablehq.com/@mbostock/d3-tidy-tree" target="_blank" rel="noopener">树图</a>，里面不仅有效果图，下面还附赠了代码，甚至可以编辑运行，是不是很贴心？结合官方文档看相信能更容易理解。</p>
 <p><img src="/2019/01/13/d3-js初探/tree.png" alt="tree layout"></p>
+<a id="more"></a>
 <h4 id="选择元素"><a href="#选择元素" class="headerlink" title="选择元素"></a>选择元素</h4><p>d3.js第4版添加了对Canvas的支持，现在可以基于canvas创建画布了，也就是说我们的画布可以定义成svg元素或者canvas元素，就像是这样：</p>
 <pre>
 <code>
@@ -561,14 +562,6 @@ for (var k = 1; k < linePoint.length; k++) {
     
 
     
-      <div>
-        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="" alt="xinleiStone wechat" style="width: 200px; max-width: 100%;">
-    <div>ex. subscribe to my blog by scanning my public wechat account</div>
-</div>
-
-      </div>
-    
 
     
 
@@ -589,6 +582,22 @@ for (var k = 1; k < linePoint.length; k++) {
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/15/VS-Code助你Coding效率翻倍/" rel="prev" title="VS Code助你Coding效率翻倍">
+                VS Code助你Coding效率翻倍 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -664,7 +673,7 @@ for (var k = 1; k < linePoint.length; k++) {
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -675,7 +684,7 @@ for (var k = 1; k < linePoint.length; k++) {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -686,7 +695,7 @@ for (var k = 1; k < linePoint.length; k++) {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
