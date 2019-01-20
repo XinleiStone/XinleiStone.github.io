@@ -268,6 +268,155 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.liuxinlei.com/2019/01/20/axios封装终极方案/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xinleiStone">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冲鸭！٩(ˊᗜˋ*)و">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/20/axios封装终极方案/" itemprop="url">axios封装终极方案(async await)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-20T10:48:03+08:00">
+                2019-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>在 <code>Vue</code> 项目中，大家已经习惯使用 <code>axios</code> 实现 <code>ajax</code> 请求，不仅因为 <code>axios</code> 支持 <code>Promise API</code> ，还因为它可以统一监听、转化请求和返回，对请求进行统一拦截。因此对 <code>axios</code> 进行一层封装，全局创建api实例，使得所有的请求都可以进行数据转换、错误处理等拦截操作，在业务代码中可以节省很多重复而繁琐的步骤。</p>
+<h4 id="http-js"><a href="#http-js" class="headerlink" title="http.js"></a>http.js</h4><p>以 <code>Vue</code> 项目为例，假设在 <code>http.js</code> 中进行 <code>axios</code> 配置和封装，并将 <code>axios</code> 挂载到 <code>Vue</code> 实例上，在 <code>Vue</code> 代码中就可以使用 <code>this.$http</code> 获取到axios实例了，非常方便。以下是 <code>http.js</code> 的核心代码，具体以注释的方式进行说明：</p>
+<h5 id="引入axios并进行默认配置"><a href="#引入axios并进行默认配置" class="headerlink" title="引入axios并进行默认配置"></a>引入axios并进行默认配置</h5><p>此处可以对axios全局设置一些属性，更多配置可以参考 <a href="https://www.kancloud.cn/yunye/axios/234845" target="_blank" rel="noopener">axios使用说明</a>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/** http.js **/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// axios 默认配置</span></span><br><span class="line">axios.defaults.timeout = <span class="number">15000</span></span><br><span class="line">axios.defaults.headers = &#123;</span><br><span class="line">  <span class="string">'X-Requested-with'</span>: <span class="string">'XMLHttpRequest'</span></span><br><span class="line">&#125;</span><br><span class="line">axios.defaults.validateStatus = <span class="function">(<span class="params">status</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> status &gt;= <span class="number">200</span> &amp;&amp; status &lt; <span class="number">500</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/20/axios封装终极方案/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.liuxinlei.com/2019/01/15/VS-Code助你Coding效率翻倍/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -372,24 +521,6 @@
 </ul>
 <p>也许 VSCode 集成了以上几个编辑器（IDE）的优点，比 sublime 开源，比 atom 更快，比 webstorm 更轻。</p>
 <p>  <img src="/2019/01/15/VS-Code助你Coding效率翻倍/vscode技术栈1.png" width="550/"></p>
-<p><b>改变也许很简单：</b></p>
-<p>  <img src="/2019/01/15/VS-Code助你Coding效率翻倍/keymap.png" width="550/"></p>
-<p><b>好在哪里？</b></p>
-<ul>
-<li><p>集成 Git——微软都收购 Git 了，你懂的</p>
-</li>
-<li><p>轻量级、启动速度快，执行简单，调试方便</p>
-</li>
-<li><p>智能感知——浓缩版的 VS（甩 sublime 和 atom 几条街）</p>
-</li>
-<li><p>易调试</p>
-</li>
-<li><p>可扩展 支持 javascript，C++，python，C#…</p>
-</li>
-<li><p>跨平台、 Windows、Mac 和 Linux 通用</p>
-</li>
-</ul>
-<p><b>如何配置？</b></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/01/15/VS-Code助你Coding效率翻倍/#more" rel="contents">
@@ -628,7 +759,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -639,7 +770,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -650,7 +781,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
